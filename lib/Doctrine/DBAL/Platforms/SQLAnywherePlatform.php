@@ -418,14 +418,6 @@ class SQLAnywherePlatform extends AbstractPlatform
     /**
      * {@inheritdoc}
      */
-    public function getCreateSchemaSQL($schemaName)
-    {
-        return 'CREATE SCHEMA AUTHORIZATION ' . $schemaName;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getCreateTemporaryTableSnippetSQL()
     {
         return 'CREATE ' . $this->getTemporaryTableSQL() . ' TABLE';
@@ -541,14 +533,6 @@ class SQLAnywherePlatform extends AbstractPlatform
     public function getDateTypeDeclarationSQL(array $fieldDeclaration)
     {
         return 'DATE';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getDefaultSchemaName()
-    {
-        return 'DBA';
     }
 
     /**
@@ -1206,14 +1190,6 @@ class SQLAnywherePlatform extends AbstractPlatform
     /**
      * {@inheritdoc}
      */
-    public function schemaNeedsCreation($schemaName)
-    {
-        return $schemaName !== 'DBA';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function supportsCommentOnStatement()
     {
         return true;
@@ -1223,14 +1199,6 @@ class SQLAnywherePlatform extends AbstractPlatform
      * {@inheritdoc}
      */
     public function supportsIdentityColumns()
-    {
-        return true;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function supportsSchemas()
     {
         return true;
     }
